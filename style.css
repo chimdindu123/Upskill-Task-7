@@ -1,0 +1,375 @@
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  src: url("my fonts/fonts/PlusJakartaSans-VariableFont_wght.ttf") format("truetype");
+  font-weight: 500 700;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: hsl(202, 86%, 94%);
+  font-family: "Plus Jakarta Sans", Arial, sans-serif;
+  color: hsl(202, 55%, 16%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 35px 20px;
+}
+
+.calculator {
+  width: 100%;
+  max-width: 1000px;
+  min-height: 540px;
+  background: white;
+  border-radius: 22px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  overflow: hidden;
+}
+
+.form-side {
+  padding: 38px 40px;
+}
+
+.heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+h1 {
+  font-size: 23px;
+  margin: 0;
+}
+
+.clear-button {
+  border: 0;
+  background: none;
+  color: hsl(200, 26%, 54%);
+  text-decoration: underline;
+  cursor: pointer;
+  font: inherit;
+  font-size: 13px;
+}
+
+.clear-button:hover {
+  color: hsl(202, 55%, 16%);
+}
+
+.input-group {
+  margin-bottom: 22px;
+}
+
+.input-group > label:first-child {
+  display: block;
+  font-size: 13px;
+  color: hsl(200, 24%, 40%);
+  margin-bottom: 9px;
+}
+
+.input-box {
+  height: 48px;
+  border: 1px solid hsl(200, 26%, 54%);
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.input-box:focus-within {
+  border: 1px solid hsl(61, 70%, 52%);
+}
+
+.input-box input {
+  width: 100%;
+  min-width: 0;
+  height: 100%;
+  border: 0;
+  outline: 0;
+  padding: 0 13px;
+  color: hsl(202, 55%, 16%);
+  font: inherit;
+  font-weight: 700;
+  font-size: 15px;
+}
+
+.input-box input::-webkit-inner-spin-button,
+.input-box input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.input-box input[type="number"] {
+  appearance: textfield;
+  -moz-appearance: textfield;
+}
+
+.input-symbol {
+  height: 100%;
+  min-width: 43px;
+  padding: 0 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: hsl(202, 86%, 94%);
+  color: hsl(200, 24%, 40%);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.right-symbol {
+  min-width: 65px;
+}
+
+.inputs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.radio-option {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  height: 46px;
+  padding: 0 14px;
+  margin-bottom: 9px;
+  border: 1px solid hsl(200, 26%, 54%);
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.radio-option:hover {
+  border-color: hsl(61, 70%, 40%);
+}
+
+.radio-option:has(input:checked) {
+  border: 1px solid hsl(61, 70%, 40%);
+  background: hsla(61, 70%, 52%, 0.18);
+}
+
+.radio-option input {
+  accent-color: hsl(61, 70%, 40%);
+  width: 17px;
+  height: 17px;
+  margin: 0;
+}
+
+.calculate-button {
+  margin-top: 7px;
+  height: 50px;
+  padding: 0 25px;
+  border: 0;
+  border-radius: 30px;
+  background: hsl(61, 70%, 52%);
+  color: hsl(202, 55%, 16%);
+  font: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.calculate-button:hover {
+  background: hsl(61, 70%, 65%);
+}
+
+.calculate-button img {
+  width: 19px;
+  height: 19px;
+}
+
+.error-message {
+  display: none;
+  color: hsl(4, 69%, 50%);
+  font-size: 11px;
+  margin-top: 6px;
+}
+
+.input-group.has-error .error-message {
+  display: block;
+}
+
+.input-group.has-error .input-box,
+.input-group.has-error .radio-option {
+  border-color: hsl(4, 69%, 50%);
+}
+
+.input-group.has-error .input-symbol {
+  background: hsl(4, 69%, 50%);
+  color: white;
+}
+
+.results-side {
+  background: hsl(202, 55%, 16%);
+  color: white;
+  border-bottom-left-radius: 75px;
+  padding: 38px 40px;
+}
+
+.empty-results {
+  height: 100%;
+  min-height: 450px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.empty-results img {
+  width: 190px;
+  max-width: 80%;
+  margin-bottom: 12px;
+}
+
+.results-side h2 {
+  font-size: 21px;
+  margin: 0 0 14px;
+}
+
+.empty-results p,
+.result-intro {
+  color: hsl(203, 41%, 72%);
+  font-size: 13px;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.completed-results {
+  padding-top: 3px;
+}
+
+.result-intro {
+  margin-bottom: 28px;
+}
+
+.result-card {
+  background: hsl(201, 56%, 12%);
+  border-top: 4px solid hsl(61, 70%, 52%);
+  border-radius: 8px;
+  padding: 25px;
+}
+
+.result-card p {
+  color: hsl(203, 41%, 72%);
+  font-size: 13px;
+  margin: 0 0 10px;
+}
+
+.result-card h3 {
+  color: hsl(61, 70%, 52%);
+  font-size: 42px;
+  margin: 0 0 22px;
+  overflow-wrap: anywhere;
+}
+
+.result-line {
+  height: 1px;
+  background: hsla(203, 41%, 72%, 0.25);
+  margin-bottom: 22px;
+}
+
+.result-card h4 {
+  font-size: 21px;
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.footer {
+  margin-top: 20px;
+  font-size: 11px;
+  color: hsl(200, 24%, 40%);
+  text-align: center;
+}
+
+.footer a {
+  color: hsl(202, 55%, 16%);
+}
+
+@media (max-width: 700px) {
+  body {
+    padding: 0;
+    display: block;
+    background: white;
+  }
+
+  .calculator {
+    display: block;
+    border-radius: 0;
+    min-height: 100vh;
+  }
+
+  .form-side {
+    padding: 28px 22px 32px;
+  }
+
+  .heading {
+    display: block;
+    margin-bottom: 25px;
+  }
+
+  h1 {
+    margin-bottom: 8px;
+  }
+
+  .inputs {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .calculate-button {
+    width: 100%;
+  }
+
+  .results-side {
+    border-radius: 0;
+    padding: 30px 22px;
+  }
+
+  .empty-results {
+    min-height: 300px;
+  }
+
+  .result-card {
+    padding: 22px;
+  }
+
+  .result-card h3 {
+    font-size: 36px;
+  }
+
+  .footer {
+    padding: 15px;
+    margin: 0;
+    background: white;
+  }
+}
+
+@media (max-width: 350px) {
+  .form-side,
+  .results-side {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .heading h1 {
+    font-size: 21px;
+  }
+}

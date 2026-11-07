@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mortgage Repayment Calculator</title>
+  <link rel="icon" type="image/png" href="my fonts/images/favicon-32x32.png">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main class="calculator">
+    <section class="form-side">
+      <div class="heading">
+        <h1>Mortgage Calculator</h1>
+        <button class="clear-button" id="clear-button" type="button">Clear All</button>
+      </div>
+
+      <form id="mortgage-form" novalidate>
+        <div class="input-group">
+          <label for="amount">Mortgage Amount</label>
+          <div class="input-box" id="amount-box">
+            <span class="input-symbol">£</span>
+            <input type="number" id="amount" name="amount" min="1" step="any">
+          </div>
+          <small class="error-message" id="amount-error"></small>
+        </div>
+
+        <div class="inputs">
+          <div class="input-group">
+            <label for="term">Mortgage Term</label>
+            <div class="input-box" id="term-box">
+              <input type="number" id="term" name="term" min="1" step="1">
+              <span class="input-symbol right-symbol">years</span>
+            </div>
+            <small class="error-message" id="term-error"></small>
+          </div>
+
+          <div class="input-group">
+            <label for="rate">Interest Rate</label>
+            <div class="input-box" id="rate-box">
+              <input type="number" id="rate" name="rate" min="0.01" step="any">
+              <span class="input-symbol right-symbol">%</span>
+            </div>
+            <small class="error-message" id="rate-error"></small>
+          </div>
+        </div>
+
+        <div class="input-group mortgage-type">
+          <label>Mortgage Type</label>
+          <label class="radio-option" for="repayment">
+            <input type="radio" id="repayment" name="mortgage-type" value="repayment">
+            <span>Repayment</span>
+          </label>
+          <label class="radio-option" for="interest-only">
+            <input type="radio" id="interest-only" name="mortgage-type" value="interest-only">
+            <span>Interest Only</span>
+          </label>
+          <small class="error-message" id="type-error"></small>
+        </div>
+
+        <button class="calculate-button" type="submit">
+          <img src="./icon-calculator.svg" alt="">
+          Calculate Repayments
+        </button>
+      </form>
+    </section>
+
+    <section class="results-side" id="results-side">
+      <div class="empty-results" id="empty-results">
+        <img src="./illustration-empty.svg" alt="">
+        <h2>Results shown here</h2>
+        <p>Complete the form and click “calculate repayments” to see what your monthly repayments would be.</p>
+      </div>
+
+      <div class="completed-results" id="completed-results" hidden>
+        <h2>Your results</h2>
+        <p class="result-intro">Your results are shown below based on the information you provided. To adjust the results, edit the form and click “calculate repayments” again.</p>
+
+        <div class="result-card">
+          <p id="monthly-label">Your monthly repayments</p>
+          <h3 id="monthly-result">£0.00</h3>
+          <div class="result-line"></div>
+          <p>Total you'll repay over the term</p>
+          <h4 id="total-result">£0.00</h4>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    Challenge by <a href="https://www.frontendmentor.io" target="_blank">Frontend Mentor</a>.
+    Coded by <a href="#">Chimdindu Akpom</a>.
+  </footer>
+</body>
+</html>
